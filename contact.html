@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Collaborations | FrontierWox Tech</title>
+  <meta name="description" content="Get in touch with FrontierWox Tech Private Limited. Operating Office: Joseph's StartUp Centre, St. Joseph's College (Autonomous), Trichy. Registered Address: Vallioor, Tirunelveli. Phone: +91 9626806328 | Email: contact@frontierwox.in. A Registered Company under MCA, Govt. of India.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .map-section {
+      background: var(--bg-light);
+      padding: 4rem 0;
+    }
+    .map-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(39, 180, 251, 0.15), 0 2px 12px rgba(0,0,0,0.08);
+      border: 2px solid rgba(39, 180, 251, 0.18);
+      position: relative;
+    }
+    .map-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 480px;
+      border: 0;
+    }
+    .map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .map-header-text h3 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+    .map-header-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .map-action-btns {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .map-address-strip {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      background: var(--surface-white);
+      border-radius: 0 0 18px 18px;
+      padding: 1.1rem 1.75rem;
+      border-top: 1.5px solid rgba(39, 180, 251, 0.12);
+    }
+    .map-address-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+    }
+    .map-address-item i {
+      font-size: 1.1rem;
+      width: 1.3rem;
+      flex-shrink: 0;
+    }
+    .map-address-item span {
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .map-address-item strong {
+      color: var(--text-dark);
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.1rem;
+    }
+    @media (max-width: 768px) {
+      .map-wrapper iframe { height: 300px; }
+      .map-header { flex-direction: column; align-items: flex-start; }
+      .map-address-strip { gap: 1rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <img src="fwt_logo.png" alt="FrontierWox Tech Private Limited Logo">
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="products.html" class="nav-link">Products & EdTech</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Get in Touch
+          </a>
+        </div>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <h1 class="page-banner-title">Contact Us & Collaborations</h1>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size:0.75rem;"></i> <span>Contact Us</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLABORATION CALLOUT BANNER -->
+  <section class="section-padding" style="background: var(--surface-white); padding-bottom: 2rem;">
+    <div class="container">
+      <div class="section-title-wrap" style="margin-bottom: 2rem;">
+        <span class="badge-tag orange"><i class="fas fa-handshake"></i> Strategic Partnerships</span>
+        <h2 class="section-title">Institutional & Enterprise Collaborations</h2>
+        <p class="section-subtitle">We actively partner with Universities, Colleges, Schools, Startups, SMEs, and NGOs to drive digital transformation and skill innovation.</p>
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
+        <span class="card-tag" style="font-size: 0.95rem; padding: 0.5rem 1.25rem; background: rgba(39, 180, 251, 0.1); color: #0284c7; border: 1px solid rgba(39, 180, 251, 0.2);"><i class="fas fa-university"></i> Universities & Colleges</span>
+        <span class="card-tag" style="font-size: 0.95rem; padding: 0.5rem 1.25rem; background: rgba(235, 77, 28, 0.1); color: var(--orange); border: 1px solid rgba(235, 77, 28, 0.2);"><i class="fas fa-school"></i> High Schools & Vocational Institutes</span>
+        <span class="card-tag" style="font-size: 0.95rem; padding: 0.5rem 1.25rem; background: rgba(39, 180, 251, 0.1); color: #0284c7; border: 1px solid rgba(39, 180, 251, 0.2);"><i class="fas fa-chart-line"></i> Growing SMEs & Enterprises</span>
+        <span class="card-tag" style="font-size: 0.95rem; padding: 0.5rem 1.25rem; background: rgba(235, 77, 28, 0.1); color: var(--orange); border: 1px solid rgba(235, 77, 28, 0.2);"><i class="fas fa-rocket"></i> Early-stage Startups</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID SECTION -->
+  <section class="section-padding" style="background: var(--bg-light); padding-top: 2rem;">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info Side Card -->
+        <div class="contact-info-card">
+          <h3>Get in Touch</h3>
+          <p style="color: #cbd5e1; margin-bottom: 2.5rem;">
+            Whether you require a custom enterprise software build, AI consulting, or wish to establish an FWT iZON campus innovation lab, our team is ready to assist.
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(235, 77, 28, 0.15); color: var(--orange);"><i class="fas fa-building"></i></div>
+            <div class="contact-text">
+              <h5>Operating Office</h5>
+              <p>Joseph's StartUp Centre,<br>St. Joseph's College (Autonomous), Trichy, Tamil Nadu</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-pin"></i></div>
+            <div class="contact-text">
+              <h5>Registered Address</h5>
+              <p>Vallioor, Tirunelveli, Tamil Nadu, India</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(235, 77, 28, 0.15); color: var(--orange);"><i class="fas fa-phone"></i></div>
+            <div class="contact-text">
+              <h5>Direct Telephone</h5>
+              <p><a href="tel:+919626806328">+91 9626806328</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-text">
+              <h5>Official Email</h5>
+              <p><a href="mailto:contact@frontierwox.in">contact@frontierwox.in</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(235, 77, 28, 0.15); color: var(--orange);"><i class="fas fa-envelope-open-text"></i></div>
+            <div class="contact-text">
+              <h5>HR & Careers Email</h5>
+              <p><a href="mailto:hr@frontierwox.in">hr@frontierwox.in</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-globe"></i></div>
+            <div class="contact-text">
+              <h5>Web Portal</h5>
+              <p><a href="https://www.frontierwox.in" target="_blank">www.frontierwox.in</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(235, 77, 28, 0.15); color: var(--orange);"><i class="fas fa-building-flag"></i></div>
+            <div class="contact-text">
+              <h5>Legal Corporate Status</h5>
+              <p style="font-size: 0.95rem; color: var(--sky-blue); font-weight: 600;">A Registered Company under MCA, Govt. of India</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+            <h5 style="color: #94a3b8; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 1rem;">Connect via Social Networks</h5>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/company/frontierwox-tech/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/frontierwox/" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.instagram.com/frontierwox_tech/" target="_blank" rel="noopener noreferrer" class="social-link instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/919626806328" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://www.ambitionbox.com/overview/frontierwox-tech-overview/" target="_blank" rel="noopener noreferrer" class="social-link ambitionbox" title="AmbitionBox"><i class="fas fa-briefcase"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div style="background: var(--surface-white); padding: 3rem 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-light);">
+          <h3 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Transmit Inquiry</h3>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">Fill out the specifications below and our solutions architect will respond within 24 hours.</p>
+
+          <form id="contactForm">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="fullName">Full Name *</label>
+                <input type="text" id="fullName" class="form-control" placeholder="e.g. Dr. Rajesh Kumar" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="emailAddr">Email Address *</label>
+                <input type="email" id="emailAddr" class="form-control" placeholder="name@organization.com" required>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="phoneNum">Phone Number *</label>
+                <input type="tel" id="phoneNum" class="form-control" placeholder="+91 98765 43210" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="orgType">Organization Type</label>
+                <select id="orgType" class="form-control">
+                  <option value="enterprise">Corporate Enterprise / SME</option>
+                  <option value="university">University / Engineering College</option>
+                  <option value="school">School / Skill Institute</option>
+                  <option value="startup">Tech Startup</option>
+                  <option value="ngo">NGO / Public Sector</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inquirySubject">Primary Area of Interest</label>
+              <select id="inquirySubject" class="form-control">
+                <option value="custom-software">Custom Software & Enterprise ERP</option>
+                <option value="fw-izon">FWT iZON Campus Collaboration & Skill Program</option>
+                <option value="ai-cloud">AI & Cloud Solutions Consulting</option>
+                <option value="products">FrontierWox Products (Resume Builder / HRMS)</option>
+                <option value="general">General Corporate Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="messageContent">Project Requirements / Inquiry Details *</label>
+              <textarea id="messageContent" class="form-control" placeholder="Please outline your objectives, timeline, or collaboration proposal..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-orange" style="width: 100%; font-size: 1.1rem; padding: 1rem;">
+              <i class="fas fa-paper-plane"></i> Submit Inquiry Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOGLE MAP LOCATION SECTION -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-header">
+        <div class="map-header-text">
+          <span class="badge-tag" style="margin-bottom: 0.6rem;"><i class="fas fa-location-dot"></i> Our Location</span>
+          <h3>Find Us on Google Maps</h3>
+          <p>FrontierWox Tech Private Limited — Operating Office, Trichy, Tamil Nadu</p>
+        </div>
+        <div class="map-action-btns">
+          <a href="https://maps.app.goo.gl/PuNs3XGEnU9MeZjW9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fas fa-directions"></i> Get Directions
+          </a>
+          <a href="https://maps.app.goo.gl/PuNs3XGEnU9MeZjW9" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fab fa-google"></i> Open in Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.774119714168!2d78.69184369999999!3d10.8285906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf52960c0703f%3A0x85c6e9b436f50934!2sFrontierWox%20Tech%20Private%20Limited!5e0!3m2!1sen!2sin!4v1784891905550!5m2!1sen!2sin"
+          title="FrontierWox Tech Private Limited - Google Maps Location"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+        <div class="map-address-strip">
+          <div class="map-address-item">
+            <i class="fas fa-building" style="color: var(--orange);"></i>
+            <div>
+              <strong>Operating Office</strong>
+              <span>Joseph's StartUp Centre, St. Joseph's College (Autonomous), Trichy, Tamil Nadu</span>
+            </div>
+          </div>
+          <div class="map-address-item">
+            <i class="fas fa-map-pin" style="color: var(--sky-blue);"></i>
+            <div>
+              <strong>Registered Address</strong>
+              <span>Vallioor, Tirunelveli – 627117, Tamil Nadu, India</span>
+            </div>
+          </div>
+          <div class="map-address-item">
+            <i class="fas fa-phone" style="color: var(--orange);"></i>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+919626806328" style="color: var(--text-muted);">+91 9626806328</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-recognitions">
+        <div class="recognition-title">Recognized & Member Of</div>
+        <div class="recognition-logos">
+          <div class="recognition-logo-card" title="NASSCOM Member">
+            <img src="nasscom_logo.png" alt="NASSCOM Member Logo">
+          </div>
+          <div class="recognition-logo-card" title="StartUp India">
+            <img src="startupLogo.cfb8671d.png" alt="StartUp India Logo">
+          </div>
+          <div class="recognition-logo-card" title="StartUp TN">
+            <img src="startuptn_logo.png" alt="StartUp TN Logo">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="fwt_logo.png" alt="FrontierWox Tech Private Limited">
+          <p>FrontierWox Tech Private Limited is a forward-thinking technology company specializing in intelligent engineering, enterprise software systems, artificial intelligence, and skill acceleration through FWT iZON.</p>
+          <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">
+            <i class="fas fa-building-flag" style="color: var(--orange);"></i> A Registered Company under MCA, Govt. of India
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="leadership.html"><i class="fas fa-angle-right"></i> Leadership</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Services Portfolio</a></li>
+            <li><a href="products.html"><i class="fas fa-angle-right"></i> Products & EdTech</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Core Offerings</h4>
+          <ul class="footer-links">
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Custom Software ERP</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> AI & Machine Learning</a></li>
+            <li><a href="services.html"><i class="fas fa-angle-right"></i> Web & Mobile Apps</a></li>
+            <li><a href="products.html"><i class="fas fa-angle-right"></i> FWT iZON Acceleration</a></li>
+            <li><a href="products.html"><i class="fas fa-angle-right"></i> FrontierWox Products</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Corporate Addresses</h4>
+          <ul class="footer-links" style="font-size: 0.875rem;">
+            <li style="display: flex; gap: 0.6rem; align-items: flex-start; margin-bottom: 0.85rem;">
+              <i class="fas fa-building" style="color: var(--orange); margin-top: 3px;"></i>
+              <div>
+                <strong style="color: var(--text-dark); display: block;">Operating Office:</strong>
+                <span>Joseph's StartUp Centre, St. Joseph's College (Autonomous), Trichy, Tamil Nadu</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 0.6rem; align-items: flex-start; margin-bottom: 0.85rem;">
+              <i class="fas fa-map-pin" style="color: var(--sky-blue); margin-top: 3px;"></i>
+              <div>
+                <strong style="color: var(--text-dark); display: block;">Registered Address:</strong>
+                <span>Vallioor, Tirunelveli, Tamil Nadu, India</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 0.6rem; align-items: center;">
+              <i class="fas fa-phone" style="color: var(--orange);"></i>
+              <a href="tel:+919626806328">+91 9626806328</a>
+            </li>
+            <li style="display: flex; gap: 0.6rem; align-items: center;">
+              <i class="fas fa-envelope" style="color: var(--sky-blue);"></i>
+              <a href="mailto:contact@frontierwox.in">contact@frontierwox.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 FrontierWox Tech Private Limited. All Rights Reserved.
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/frontierwox-tech/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/frontierwox/" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/frontierwox_tech/" target="_blank" rel="noopener noreferrer" class="social-link instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/919626806328" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.ambitionbox.com/overview/frontierwox-tech-overview/" target="_blank" rel="noopener noreferrer" class="social-link ambitionbox" title="AmbitionBox"><i class="fas fa-briefcase"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
