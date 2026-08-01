@@ -20,14 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(navOverlay);
   }
 
-  // Inject close button inside mobile menu if not present
-  if (navMenu && !navMenu.querySelector('.nav-menu-close')) {
-    const closeBtn = document.createElement('button');
-    closeBtn.className = 'nav-menu-close';
-    closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-    closeBtn.setAttribute('aria-label', 'Close Menu');
-    navMenu.prepend(closeBtn);
-    closeBtn.addEventListener('click', closeNav);
+  // Page Shuttle Transition Controller
+  const shuttle = document.getElementById('page-shuttle');
+  if (shuttle) {
+    setTimeout(() => {
+      shuttle.classList.add('shuttle-out');
+    }, 450);
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (
+        href &&
+        !href.startsWith('#') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('http') &&
+        !link.getAttribute('target')
+      ) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          shuttle.classList.remove('shuttle-out');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 350);
+        });
+      }
+    });
   }
 
   function openNav() {
@@ -64,15 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =====================================================
-     2. HEADER — Scroll Glass & Shrink Effect
+     2. HEADER — Top Bar Scroll Away & Logo Shrink
      ===================================================== */
+  const headerWrapper = document.querySelector('.header-wrapper');
   const header = document.querySelector('.header');
 
   const onScroll = () => {
-    const scrolled = window.scrollY > 50;
+    const scrolled = window.scrollY > 40;
+    headerWrapper?.classList.toggle('scrolled', scrolled);
     header?.classList.toggle('scrolled', scrolled);
+    
     // Show/hide back-to-top
     backToTop?.classList.toggle('visible', window.scrollY > 350);
+
+    // Update scroll progress bar
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = height > 0 ? (winScroll / height) * 100 : 0;
+      scrollProgress.style.width = progress + '%';
+    }
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -203,32 +233,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =====================================================
-     7. CONTACT FORM — Animated Submit Feedback
+     7. CONTACT FORM — Direct Mail Dispatch & Ticket Generation
      ===================================================== */
   const contactForm = document.getElementById('contactForm');
+  const ticketConfirmation = document.getElementById('ticketConfirmation');
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       if (!submitBtn) return;
 
+      const fullName       = document.getElementById('fullName')?.value.trim() || 'Valued Partner';
+      const emailAddr      = document.getElementById('emailAddr')?.value.trim() || '';
+      const phoneNum       = document.getElementById('phoneNum')?.value.trim() || '';
+      const orgTypeSelect  = document.getElementById('orgType');
+      const orgType        = orgTypeSelect?.options[orgTypeSelect.selectedIndex]?.value || 'Corporate Enterprise / SME';
+      const subjSelect     = document.getElementById('inquirySubject');
+      const inquirySubject = subjSelect?.options[subjSelect.selectedIndex]?.value || 'General Corporate Inquiry';
+      const messageContent = document.getElementById('messageContent')?.value.trim() || '';
+
+      // Generate Unique Corporate Ticket ID
+      const ticketId = 'FWT-2026-TKT-' + Math.floor(1000 + Math.random() * 9000);
+
+      // Disable button & show spinner
       const originalHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Transmitting Inquiry...';
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating Ticket & Dispatching Mail...';
       submitBtn.disabled  = true;
 
-      setTimeout(() => {
-        // Success state
-        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent Successfully!';
-        submitBtn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      // Construct Email Subject & Body for hr@frontierwox.in
+      const emailRecipient = 'hr@frontierwox.in';
+      const mailSubject = encodeURIComponent(`[Inquiry Ticket #${ticketId}] - ${inquirySubject} - ${fullName}`);
+      
+      const mailBodyText = `NEW CORPORATE INQUIRY TRANSMISSION
+Ticket Reference ID: ${ticketId}
 
-        setTimeout(() => {
-          contactForm.reset();
-          submitBtn.innerHTML = originalHTML;
-          submitBtn.style.background = '';
-          submitBtn.disabled  = false;
-        }, 3000);
-      }, 1500);
+SENDER INFORMATION:
+• Full Name: ${fullName}
+• Corporate / Personal Email: ${emailAddr}
+• Phone / WhatsApp Number: ${phoneNum}
+• Organization Type: ${orgType}
+
+INQUIRY SPECIFICATIONS:
+• Primary Area of Interest: ${inquirySubject}
+
+PROJECT REQUIREMENTS & INQUIRY DETAILS:
+--------------------------------------------------
+${messageContent}
+--------------------------------------------------
+
+Target Mailbox: ${emailRecipient}
+Transmission Timestamp: ${new Date().toLocaleString()}
+FrontierWox Tech Private Limited — A Registered Company under MCA, Govt. of India`;
+
+      const mailtoUrl = `mailto:${emailRecipient}?subject=${mailSubject}&body=${encodeURIComponent(mailBodyText)}`;
+
+      // Launch native email client
+      window.location.href = mailtoUrl;
+
+      // Display Ticket Confirmation Receipt Box
+      setTimeout(() => {
+        contactForm.style.display = 'none';
+
+        if (ticketConfirmation) {
+          ticketConfirmation.style.display = 'block';
+          ticketConfirmation.innerHTML = `
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <div style="width: 75px; height: 75px; background: rgba(39, 180, 251, 0.15); border: 2px solid var(--sky-blue); color: var(--sky-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.25rem auto; box-shadow: 0 0 30px rgba(39, 180, 251, 0.4);">
+                <i class="fas fa-ticket"></i>
+              </div>
+              <span class="badge-tag" style="margin-bottom: 0.5rem;"><i class="fas fa-circle-check" style="color: #22c55e;"></i> Ticket Registered & Logged</span>
+              <h3 style="color: #ffffff; font-size: 1.85rem; margin-bottom: 0.3rem;">Inquiry Ticket #${ticketId}</h3>
+              <p style="color: #cbd5e1; font-size: 0.95rem;">Transmitted to <strong>hr@frontierwox.in</strong></p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 1.85rem; margin-bottom: 2rem;">
+              <p style="font-size: 1.05rem; color: #f8fafc; line-height: 1.8; margin-bottom: 1.25rem;">
+                Dear <strong>${fullName}</strong>,
+              </p>
+              <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 1.5rem;">
+                Your inquiry or project has been taken into consideration. Our team will shortly get in touch with you either through WhatsApp or Mail.
+              </p>
+              <div style="background: rgba(235, 77, 28, 0.12); border-left: 4px solid var(--orange); padding: 1.1rem 1.35rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 1.5rem;">
+                <p style="font-size: 0.95rem; color: #ffedd5; line-height: 1.65; margin: 0;">
+                  <i class="fas fa-triangle-exclamation" style="color: var(--orange); margin-right: 0.5rem;"></i>
+                  If it goes beyond 12hrs from the inquiry submission, you can contact us through WhatsApp or call us directly at <strong>+91 96268 06328</strong>.
+                </p>
+              </div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; color: #cbd5e1; font-size: 0.95rem; line-height: 1.65;">
+                <strong>With Regards From,</strong><br>
+                <span style="color: var(--sky-blue); font-weight: 600;">Support & Inquiry Team,</span><br>
+                <strong style="color: #ffffff;">FrontierWox Tech Private Limited</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+              <a href="https://wa.me/919626806328?text=Hi%20FrontierWox%20Support,%20I%20have%20submitted%20Inquiry%20Ticket%20%23${ticketId}%20regarding%20${encodeURIComponent(inquirySubject)}" target="_blank" rel="noopener noreferrer" class="btn btn-orange" style="flex: 1; min-width: 220px;">
+                <i class="fab fa-whatsapp"></i> WhatsApp Support (+91 96268 06328)
+              </a>
+              <a href="tel:+919626806328" class="btn btn-outline-white" style="flex: 1; min-width: 200px;">
+                <i class="fas fa-phone"></i> Call Direct (+91 96268 06328)
+              </a>
+              <button type="button" id="resetFormBtn" class="btn btn-outline-white" style="width: 100%;">
+                <i class="fas fa-rotate"></i> Submit Another Inquiry
+              </button>
+            </div>
+          `;
+
+          document.getElementById('resetFormBtn')?.addEventListener('click', () => {
+            ticketConfirmation.style.display = 'none';
+            contactForm.reset();
+            contactForm.style.display = 'block';
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+          });
+        }
+      }, 700);
     });
   }
 

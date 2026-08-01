@@ -5,37 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leadership Team | FrontierWox Tech Private Limited</title>
   <meta name="description" content="Meet the Executive Leadership of FrontierWox Tech Private Limited: Ajay James (Director & CEO - Technical Vision & Engineering) and Aadhi Nandagopal (Director & COO - Operations, HR, Finance & Head of FWT iZON). A Registered Company under MCA, Govt. of India.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- HEADER NAVBAR -->
-  <header class="header">
-    <div class="container">
-      <nav class="navbar">
-        <a href="index.html" class="brand-logo">
-          <img src="fwt_logo.png" alt="FrontierWox Tech Private Limited Logo">
-        </a>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="leadership.html" class="nav-link active">Leadership</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="products.html" class="nav-link">Products & EdTech</a></li>
-          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
-        </ul>
-        <div class="nav-actions">
-          <a href="contact.html" class="btn btn-primary">
-            <i class="fas fa-paper-plane"></i> Get in Touch
-          </a>
-        </div>
-        <button class="mobile-toggle" aria-label="Toggle Navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-      </nav>
+  <!-- PAGE SHUTTLE TRANSITION -->
+  <div id="page-shuttle" class="page-shuttle">
+    <div class="shuttle-content">
+      <div class="shuttle-logo-box">
+        <img src="fwt_logo.png" alt="FrontierWox Tech Corporate Shuttle Logo" class="shuttle-logo">
+      </div>
+      <div class="shuttle-title">FrontierWox Tech</div>
+      <div class="shuttle-tagline">Empowering Innovation</div>
+      <div class="shuttle-progress">
+        <div class="shuttle-bar"></div>
+      </div>
     </div>
-  </header>
+  </div>
+
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+  <!-- HEADER WRAPPER (TOP BAR + NAVBAR) -->
+  <div class="header-wrapper">
+    <div class="top-bar">
+      <div class="container top-bar-container">
+        <div class="top-bar-left">
+          <span><i class="far fa-clock"></i> Mon - Sat, 10:00 AM to 7:00 PM</span>
+          <span class="top-bar-divider">|</span>
+          <a href="mailto:hr@frontierwox.in"><i class="far fa-envelope"></i> hr@frontierwox.in</a>
+          <span class="top-bar-divider">|</span>
+          <a href="tel:+919626806328"><i class="fas fa-phone-alt"></i> +91 96268 06328</a>
+        </div>
+        <div class="top-bar-right">
+          <span class="follow-label">Follow Us:</span>
+          <div class="social-links-sm">
+            <a href="https://www.linkedin.com/company/frontierwox-tech/" target="_blank" rel="noopener noreferrer" class="social-sm linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/frontierwox/" target="_blank" rel="noopener noreferrer" class="social-sm github" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/frontierwox_tech/" target="_blank" rel="noopener noreferrer" class="social-sm instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919626806328" target="_blank" rel="noopener noreferrer" class="social-sm whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.ambitionbox.com/overview/frontierwox-tech-overview/" target="_blank" rel="noopener noreferrer" class="social-sm ambitionbox" title="AmbitionBox"><i class="fas fa-briefcase"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER NAVBAR -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="brand-logo">
+            <img src="fwt_logo.png" alt="FrontierWox Tech Private Limited Logo">
+          </a>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="leadership.html" class="nav-link active">Leadership</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="products.html" class="nav-link">Products & EdTech</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Get in Touch
+            </a>
+          </div>
+          <button class="mobile-toggle" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+  </div>
 
   <!-- PAGE BANNER -->
   <section class="page-banner">
@@ -87,7 +129,7 @@
             <div style="border-top: 1px solid var(--border-light); padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
               <span style="font-size: 0.875rem; color: var(--text-muted); font-weight: 500;">FrontierWox Tech Private Limited</span>
               <div class="social-links">
-                <a href="https://www.linkedin.com/company/frontierwox-tech/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/ajayjames027/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn Ajay James"><i class="fab fa-linkedin-in"></i></a>
               </div>
             </div>
           </div>
@@ -122,8 +164,7 @@
             <div style="border-top: 1px solid var(--border-light); padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
               <span style="font-size: 0.875rem; color: var(--text-muted); font-weight: 500;">FrontierWox Tech Private Limited</span>
               <div class="social-links">
-                <a href="https://github.com/frontierwox/" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/company/frontierwox-tech/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/aadhin/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn Aadhi N"><i class="fab fa-linkedin-in"></i></a>
               </div>
             </div>
           </div>
@@ -226,7 +267,7 @@
             </li>
             <li style="display: flex; gap: 0.6rem; align-items: center;">
               <i class="fas fa-envelope" style="color: var(--sky-blue);"></i>
-              <a href="mailto:contact@frontierwox.in">contact@frontierwox.in</a>
+              <a href="mailto:hr@frontierwox.in">hr@frontierwox.in</a>
             </li>
           </ul>
         </div>
