@@ -387,13 +387,14 @@ ul { list-style: none; }
   background-image: 
     radial-gradient(circle at 50% 40%, rgba(39, 180, 251, 0.25) 0%, transparent 60%),
     radial-gradient(circle at 20% 80%, rgba(235, 77, 28, 0.18) 0%, transparent 50%);
-  z-index: 99999;
+  z-index: 999999;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  pointer-events: auto;
 }
 
 .page-shuttle.shuttle-out {
@@ -756,9 +757,75 @@ ul { list-style: none; }
     color: var(--sky-blue);
   }
 
-  .nav-link::after { display: none; }
-
   .nav-actions { display: none; }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    max-height: 140px;
+    padding: 0.4rem 0;
+    font-size: 0.76rem;
+  }
+
+  .top-bar-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    text-align: center;
+  }
+
+  .top-bar-left {
+    justify-content: center;
+    gap: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    width: 100%;
+  }
+
+  .top-bar-left span,
+  .top-bar-left a {
+    font-size: 0.75rem;
+  }
+
+  .top-bar-right {
+    justify-content: center;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .follow-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+
+  .social-sm {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+
+  .header-wrapper.scrolled .top-bar {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  .navbar {
+    height: 72px;
+  }
+
+  .header.scrolled .navbar,
+  .header-wrapper.scrolled .navbar {
+    height: 60px;
+  }
+
+  .brand-logo img {
+    height: 48px;
+  }
+
+  .header.scrolled .brand-logo img,
+  .header-wrapper.scrolled .brand-logo img {
+    height: 38px;
+  }
 }
 
 /* ============================================================

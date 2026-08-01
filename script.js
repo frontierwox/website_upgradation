@@ -22,31 +22,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Page Shuttle Transition Controller
   const shuttle = document.getElementById('page-shuttle');
-  if (shuttle) {
-    setTimeout(() => {
-      shuttle.classList.add('shuttle-out');
-    }, 450);
 
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (
-        href &&
-        !href.startsWith('#') &&
-        !href.startsWith('mailto:') &&
-        !href.startsWith('tel:') &&
-        !href.startsWith('http') &&
-        !link.getAttribute('target')
-      ) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          shuttle.classList.remove('shuttle-out');
-          setTimeout(() => {
-            window.location.href = href;
-          }, 350);
-        });
-      }
-    });
+  function hideShuttle() {
+    if (shuttle) {
+      shuttle.classList.add('shuttle-out');
+    }
   }
+
+  function showShuttleAndNavigate(targetUrl) {
+    if (shuttle) {
+      shuttle.classList.remove('shuttle-out');
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 350);
+    } else {
+      window.location.href = targetUrl;
+    }
+  }
+
+  // Ensure shuttle hides on load
+  hideShuttle();
+
+  // Mobile back/forward cache handler (pageshow)
+  window.addEventListener('pageshow', () => {
+    hideShuttle();
+  });
+
+  // Attach link navigation handlers
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (
+      href &&
+      !href.startsWith('#') &&
+      !href.startsWith('mailto:') &&
+      !href.startsWith('tel:') &&
+      !href.startsWith('http') &&
+      !link.getAttribute('target')
+    ) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNav(); // Close mobile drawer if active
+        showShuttleAndNavigate(href);
+      });
+    }
+  });
 
   function openNav() {
     navMenu?.classList.add('active');
