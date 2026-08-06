@@ -2013,6 +2013,9 @@ select.form-control {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  .journey-grid > div:nth-child(2) {
+    order: -1;
+  }
 }
 
 .service-logo-box {
