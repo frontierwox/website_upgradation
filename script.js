@@ -30,14 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showShuttleAndNavigate(targetUrl) {
-    if (shuttle) {
-      shuttle.classList.remove('shuttle-out');
-      setTimeout(() => {
-        window.location.href = targetUrl;
-      }, 350);
-    } else {
-      window.location.href = targetUrl;
-    }
+    window.location.href = targetUrl;
   }
 
   // Ensure shuttle hides on load
