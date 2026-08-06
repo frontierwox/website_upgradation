@@ -500,7 +500,7 @@ ul { list-style: none; }
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.35s ease;
   overflow: hidden;
-  max-height: 50px;
+  max-height: 250px;
 }
 
 .header-wrapper.scrolled .top-bar {
@@ -528,7 +528,8 @@ ul { list-style: none; }
 .top-bar-left span,
 .top-bar-left a {
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 600;
+  text-shadow: 0 0 3px rgba(255,255,255,0.4);
 }
 
 .top-bar-left i {
@@ -779,6 +780,10 @@ ul { list-style: none; }
     gap: 0.35rem 0.65rem;
     font-size: 0.75rem;
     width: 100%;
+  }
+
+  .top-bar-divider {
+    display: none;
   }
 
   .top-bar-left span,
