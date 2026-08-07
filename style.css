@@ -4,18 +4,18 @@
    Enhanced: Full Mobile-First Responsiveness, Rich Animations, Premium UI/UX
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
 
 /* ============================================================
    CSS CUSTOM PROPERTIES
    ============================================================ */
 :root {
-  --sky-blue: #0056b3;
-  --sky-blue-rgb: 0, 86, 179;
-  --sky-blue-light: #e6f0fa;
-  --orange: #d1410c;
-  --orange-rgb: 209, 65, 12;
-  --orange-light: #fae9e2;
+  --sky-blue: #0080d9;
+  --sky-blue-rgb: 0, 128, 217;
+  --sky-blue-light: #e6f2fc;
+  --orange: #f7641c;
+  --orange-rgb: 247, 100, 28;
+  --orange-light: #fef0e8;
   --navy-dark: #041e42;
   --navy-card: #0a254d;
   --navy-light: #123261;
@@ -68,7 +68,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'Square721 BT', 'Square 721 BT', Arial, sans-serif;
   color: var(--text-main);
   background-color: var(--bg-light);
   line-height: 1.65;
@@ -79,9 +79,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   color: var(--text-dark);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
 }
 
@@ -835,11 +835,11 @@ ul { list-style: none; }
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 100vh;
-  padding-top: clamp(165px, 23vw, 215px);
+  min-height: 90vh;
+  padding-top: clamp(140px, 15vw, 180px);
   padding-bottom: clamp(60px, 10vw, 100px);
   background-color: var(--navy-dark);
-  background-image: url('bg.jpg');
+  background-image: linear-gradient(180deg, rgba(4, 30, 66, 0.85) 0%, rgba(4, 30, 66, 0.95) 100%), url('bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -2046,4 +2046,163 @@ select.form-control {
 .card:hover .service-logo-box.orange {
   box-shadow: 0 12px 30px rgba(235, 77, 28, 0.25), inset 0 2px 4px rgba(255,255,255,0.4);
   border-color: rgba(235,77,28,0.5);
+}
+
+/* ============================================================
+   MARQUEE SCROLLING GALLERY
+   ============================================================ */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: var(--surface-white);
+  padding: 4rem 0;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--surface-white), transparent);
+}
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--surface-white), transparent);
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 200s linear infinite;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  width: 350px;
+  height: 480px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  background: var(--bg-light);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.marquee-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .marquee-item {
+    width: 280px;
+    height: 380px;
+  }
+}
+
+/* ============================================================
+   COLLEGE PARTNER MARQUEE
+   ============================================================ */
+.college-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: var(--surface-white);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.college-marquee-container::before,
+.college-marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.college-marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--surface-white), transparent);
+}
+.college-marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--surface-white), transparent);
+}
+
+.college-marquee-content {
+  display: flex;
+  width: max-content;
+  animation: collegeMarqueeScroll 80s linear infinite;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.college-marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.college-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.college-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--sky-blue);
+}
+
+.college-logo-img {
+  max-height: 45px;
+  max-width: 150px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.college-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--navy-dark);
+}
+
+@keyframes collegeMarqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
