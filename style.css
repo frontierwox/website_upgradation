@@ -2128,81 +2128,121 @@ select.form-control {
 /* ============================================================
    COLLEGE PARTNER MARQUEE
    ============================================================ */
-.college-marquee-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  background: var(--surface-white);
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.college-marquee-container::before,
-.college-marquee-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-.college-marquee-container::before {
-  left: 0;
-  background: linear-gradient(to right, var(--surface-white), transparent);
-}
-.college-marquee-container::after {
-  right: 0;
-  background: linear-gradient(to left, var(--surface-white), transparent);
-}
-
-.college-marquee-content {
-  display: flex;
-  width: max-content;
-  animation: collegeMarqueeScroll 80s linear infinite;
+.college-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   padding: 0 1.5rem;
-}
-
-.college-marquee-content:hover {
-  animation-play-state: paused;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .college-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
   background: #ffffff;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .college-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
   border-color: var(--sky-blue);
 }
 
 .college-logo-img {
-  max-height: 45px;
-  max-width: 150px;
+  max-height: 60px;
+  max-width: 200px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .college-name {
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.4rem;
   color: var(--navy-dark);
 }
 
-@keyframes collegeMarqueeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* ============================================================
+   INTERN SLIDER
+   ============================================================ */
+.intern-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.intern-slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 1.5rem;
+  padding: 0 4rem; /* space for buttons */
+}
+
+.intern-slide {
+  flex: 0 0 calc(33.333% - 1rem); /* 3 items per view minus gap */
+  max-width: calc(33.333% - 1rem);
+}
+
+.intern-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .intern-slide {
+    flex: 0 0 calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .intern-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--sky-blue);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: var(--navy-dark);
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
 }

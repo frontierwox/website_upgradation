@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    FrontierWox Tech Private Limited - Global Interactive Script v3.0
    Features: Mobile nav overlay, scroll reveal stagger, counters, back-to-top,
              ripple effects, typed hero text, header parallax
@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* =====================================================
-     1. MOBILE NAVIGATION — Overlay Drawer System
+     1. MOBILE NAVIGATION â€” Overlay Drawer System
      ===================================================== */
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu      = document.querySelector('.nav-menu');
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =====================================================
-     2. HEADER — Top Bar Scroll Away & Logo Shrink
+     2. HEADER â€” Top Bar Scroll Away & Logo Shrink
      ===================================================== */
   const headerWrapper = document.querySelector('.header-wrapper');
   const header = document.querySelector('.header');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =====================================================
-     3. ACTIVE NAV LINK — Auto-detect current page
+     3. ACTIVE NAV LINK â€” Auto-detect current page
      ===================================================== */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =====================================================
-     4. SCROLL REVEAL — IntersectionObserver System
+     4. SCROLL REVEAL â€” IntersectionObserver System
      ===================================================== */
   const revealSelectors = [
     '.sr', '.sr-left', '.sr-right', '.sr-scale',
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* =====================================================
      5. ANIMATED STAT COUNTERS
-        — Triggers when stat numbers enter viewport
+        â€” Triggers when stat numbers enter viewport
      ===================================================== */
   const statNumbers = document.querySelectorAll('.tech-spec-num, [data-count]');
 
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =====================================================
-     7. CONTACT FORM — Direct Mail Dispatch & Ticket Generation
+     7. CONTACT FORM â€” Direct Mail Dispatch & Ticket Generation
      ===================================================== */
   const contactForm = document.getElementById('contactForm');
   const ticketConfirmation = document.getElementById('ticketConfirmation');
@@ -289,13 +289,13 @@ document.addEventListener('DOMContentLoaded', () => {
 Ticket Reference ID: ${ticketId}
 
 SENDER INFORMATION:
-• Full Name: ${fullName}
-• Corporate / Personal Email: ${emailAddr}
-• Phone / WhatsApp Number: ${phoneNum}
-• Organization Type: ${orgType}
+â€¢ Full Name: ${fullName}
+â€¢ Corporate / Personal Email: ${emailAddr}
+â€¢ Phone / WhatsApp Number: ${phoneNum}
+â€¢ Organization Type: ${orgType}
 
 INQUIRY SPECIFICATIONS:
-• Primary Area of Interest: ${inquirySubject}
+â€¢ Primary Area of Interest: ${inquirySubject}
 
 PROJECT REQUIREMENTS & INQUIRY DETAILS:
 --------------------------------------------------
@@ -304,7 +304,7 @@ ${messageContent}
 
 Target Mailbox: ${emailRecipient}
 Transmission Timestamp: ${new Date().toLocaleString()}
-FrontierWox Tech Private Limited — A Registered Company under MCA, Govt. of India`;
+FrontierWox Tech Private Limited â€” A Registered Company under MCA, Govt. of India`;
 
       const mailtoUrl = `mailto:${emailRecipient}?subject=${mailSubject}&body=${encodeURIComponent(mailBodyText)}`;
 
@@ -374,7 +374,7 @@ FrontierWox Tech Private Limited — A Registered Company under MCA, Govt. of In
 
 
   /* =====================================================
-     8. BACK TO TOP BUTTON — Inject & Control
+     8. BACK TO TOP BUTTON â€” Inject & Control
      ===================================================== */
   let backToTop = document.querySelector('.back-to-top');
 
@@ -467,7 +467,7 @@ FrontierWox Tech Private Limited — A Registered Company under MCA, Govt. of In
 
 
   /* =====================================================
-     12. STAGGER CHILDREN — apply sr to grids
+     12. STAGGER CHILDREN â€” apply sr to grids
      ===================================================== */
   document.querySelectorAll('.stagger-children').forEach(parent => {
     Array.from(parent.children).forEach(child => {
@@ -483,3 +483,72 @@ FrontierWox Tech Private Limited — A Registered Company under MCA, Govt. of In
      ===================================================== */
   onScroll();
 });
+
+/* ============================================================
+   INTERN SLIDER
+   ============================================================ */
+const internSliderTrack = document.getElementById('internSliderTrack');
+const btnPrev = document.getElementById('internPrev');
+const btnNext = document.getElementById('internNext');
+
+if (internSliderTrack && btnPrev && btnNext) {
+  const slides = document.querySelectorAll('.intern-slide');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+  
+  function getSlidesPerView() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+  
+  function updateSliderPosition() {
+    if (!slides[0]) return;
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const gap = 24; // 1.5rem = 24px
+    const offset = currentIndex * (slideWidth + gap);
+    internSliderTrack.style.transform = "translateX(-" + offset + "px)";
+  }
+  
+  btnNext.addEventListener('click', () => {
+    const spv = getSlidesPerView();
+    if (currentIndex < totalSlides - spv) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // loop back to start
+    }
+    updateSliderPosition();
+    resetAutoSlide();
+  });
+  
+  btnPrev.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      const spv = getSlidesPerView();
+      currentIndex = Math.max(0, totalSlides - spv); // loop to end
+    }
+    updateSliderPosition();
+    resetAutoSlide();
+  });
+  
+  window.addEventListener('resize', () => {
+    const spv = getSlidesPerView();
+    if (currentIndex > totalSlides - spv) {
+      currentIndex = Math.max(0, totalSlides - spv);
+    }
+    updateSliderPosition();
+  });
+  
+  // Auto-slide every 5 seconds
+  let autoSlideInterval = setInterval(() => {
+    btnNext.click();
+  }, 5000);
+  
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      btnNext.click();
+    }, 5000);
+  }
+}
