@@ -4,7 +4,7 @@
    Enhanced: Full Mobile-First Responsiveness, Rich Animations, Premium UI/UX
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Anta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600;700&family=Oxanium:wght@400;600;700&display=swap');
 
 /* ============================================================
    CSS CUSTOM PROPERTIES
@@ -20,8 +20,8 @@
   --navy-card: #0a254d;
   --navy-light: #123261;
 
-  --font-primary: 'Keania One', display, sans-serif;
-  --font-secondary: 'Anta', sans-serif;
+  --font-primary: 'Lexend', sans-serif;
+  --font-secondary: 'Oxanium', sans-serif;
   
   --text-main: #334155;
   --bg-light: #f8fafc;
