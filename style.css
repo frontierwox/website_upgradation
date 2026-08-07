@@ -4,7 +4,7 @@
    Enhanced: Full Mobile-First Responsiveness, Rich Animations, Premium UI/UX
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Electrolize&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Anta&display=swap');
 
 /* ============================================================
    CSS CUSTOM PROPERTIES
@@ -20,8 +20,8 @@
   --navy-card: #0a254d;
   --navy-light: #123261;
 
-  --font-primary: 'Goldman', display, sans-serif;
-  --font-secondary: 'Electrolize', sans-serif;
+  --font-primary: 'Keania One', display, sans-serif;
+  --font-secondary: 'Anta', sans-serif;
   
   --text-main: #334155;
   --bg-light: #f8fafc;
@@ -69,6 +69,7 @@ html {
 
 body {
   font-family: var(--font-secondary);
+  font-size: 18px;
   color: var(--text-main);
   background-color: var(--bg-light);
   line-height: 1.65;
@@ -79,7 +80,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-primary);
   color: var(--text-dark);
   font-weight: 600;
   line-height: 1.25;
@@ -114,7 +115,7 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   KEYFRAMES — Animation Library
+   KEYFRAMES â€” Animation Library
    ============================================================ */
 
 /* Float gently up and down */
@@ -301,7 +302,7 @@ ul { list-style: none; }
   justify-content: center;
   gap: 0.65rem;
   padding: 0.85rem 1.85rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 600;
   font-size: 1rem;
   border-radius: var(--radius-md);
@@ -439,7 +440,7 @@ ul { list-style: none; }
 }
 
 .shuttle-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-size: 1.85rem;
   font-weight: 800;
   color: #ffffff;
@@ -644,7 +645,7 @@ ul { list-style: none; }
 }
 
 .nav-link {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--text-dark);
@@ -995,7 +996,7 @@ ul { list-style: none; }
 }
 
 .tech-spec-num {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 800;
   color: var(--sky-blue);
@@ -1138,7 +1139,7 @@ ul { list-style: none; }
 }
 
 .izon-motto {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-size: clamp(1rem, 2.5vw, 1.35rem);
   font-weight: 700;
   background: linear-gradient(90deg, var(--sky-blue), #38bdf8, var(--orange));
@@ -1321,7 +1322,7 @@ ul { list-style: none; }
 .continuum-step.orange .continuum-step-num { background: var(--orange); }
 
 .continuum-step-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: 0.88rem;
   color: var(--text-dark);
@@ -1344,7 +1345,7 @@ ul { list-style: none; }
   background: #ffffff;
   border: 1.5px solid var(--border-light);
   color: var(--text-main);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 600;
   font-size: 0.92rem;
   cursor: pointer;
@@ -1660,7 +1661,7 @@ select.form-control {
 }
 
 /* ============================================================
-   FOOTER — Light Orange Tech Theme
+   FOOTER â€” Light Orange Tech Theme
    ============================================================ */
 .footer {
   background: linear-gradient(180deg, #fffaf7 0%, #fff3ed 100%);
@@ -2164,9 +2165,9 @@ select.form-control {
 }
 
 .college-name {
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 1rem;
   color: var(--navy-dark);
 }
 
@@ -2246,3 +2247,4 @@ select.form-control {
 .slider-btn.next {
   right: 10px;
 }
+
